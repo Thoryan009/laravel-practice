@@ -31,11 +31,13 @@
           <div class="flex items-center justify-between">
             <div class="widget-label">
               <h3>
-                Clients
+                Blogs 
               </h3>
+             
               <h1>
-                512
+                {{$count}}
               </h1>
+             
             </div>
             <span class="icon widget-icon text-green-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
           </div>

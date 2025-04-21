@@ -41,6 +41,7 @@ class Blog extends Model
             {
                 self::$imageUrl = self::getImageUrl($request);
             }
+
             
         
         self::$blog->title = $request->title;
