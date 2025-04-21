@@ -31,7 +31,7 @@
           <div class="flex items-center justify-between">
             <div class="widget-label">
               <h3>
-                Blogs 
+               Total Blogs 
               </h3>
              
               <h1>

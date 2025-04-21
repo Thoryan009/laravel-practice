@@ -4,7 +4,7 @@
 
 
 
-<section class="section main-section">
+<section class="section main-section ">
     <div class="card mb-6">
       <header class="card-header">
         <p class="card-header-title">
@@ -13,7 +13,16 @@
         </p>
       </header>
       <div class="card-content">
-        <p class="text-center text-5xl">{{session('message')}}</p>
+        
+        <div class="">
+          <div class="flex flex-col md:flex-row items-center justify-end space-y-3 md:space-y-0">
+            <div class="">
+              
+              <b>{{session('message')}}</b>
+            </div>
+           
+          </div>
+        </div>
         <form method="post" action="{{route('blogs.store')}}" enctype="multipart/form-data">
             @csrf
           <div class="field">
@@ -50,11 +59,11 @@
             </div>
           </div>
    
-    <div>
-        <button type='submit' class="button green">
-          Submit</button>
-        
-    </div>
+          <div>
+              <button type='submit' class="button green ">
+                Submit</button>
+              
+          </div>
         </form>
       </div>
     </div>
