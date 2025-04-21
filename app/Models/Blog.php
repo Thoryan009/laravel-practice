@@ -37,16 +37,16 @@ class Blog extends Model
     {
         self::$blog = Blog::find($id);
 
-        if($request->file('image'))
+        if(isset($request->image))
             {
                 self::$imageUrl = self::getImageUrl($request);
+                self::$blog->image = self::$imageUrl;
             }
 
-            
+
         
         self::$blog->title = $request->title;
         self::$blog->content = $request->content;
-        self::$blog->image = self::$imageUrl;
 
         self::$blog->save();
     }

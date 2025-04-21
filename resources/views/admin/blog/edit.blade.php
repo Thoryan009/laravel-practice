@@ -43,7 +43,7 @@
                         <a class="button blue">
                         Upload
                         </a>
-                        <input type="file" name="image" required>
+                        <input type="file" name="image">
                        
                     </label>
                     
