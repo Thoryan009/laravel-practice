@@ -49,14 +49,14 @@
           
             <td class="actions-cell">
               <div class="buttons nowrap">
-                <button class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
+                <button class="button small green"  data-target="sample-modal-2" type="button">
                  <a href="{{route('blogs.show', $blog)}}"> <span class="icon"><i class="mdi mdi-eye"></i></span></a>
                 </button>
 
                 <form action="{{route('blogs.destroy', $blog)}}" method="post">
                     @method('delete')
                     @csrf 
-                <button class="button small red --jb-modal" data-target="sample-modal" type="submit" onclick="return confirm('Are you sure to delete this..?')">
+                <button class="button small red " data-target="sample-modal" type="submit" onclick="return confirm('Are you sure to delete this..?')">
                   <span class="icon"><i class="mdi mdi-trash-can"></i></span>
                 </button>
                 </form>

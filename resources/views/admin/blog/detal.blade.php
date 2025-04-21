@@ -38,7 +38,7 @@
             <td data-label="City">{{$blog->title}}</td>
             <td data-label="City" class="w-24" style="width: 450px;">{{$blog->content}}</td>
             <td >
-                <img src="{{asset($blog->image)}}" alt="no image" style="height: 250px;">
+                <img src="{{asset($blog->image)}}" alt="no image" style="height: 150px;">
             </td>
           
             <td class="actions-cell">

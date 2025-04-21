@@ -39,8 +39,9 @@ class Blog extends Model
 
         if($request->file('image'))
             {
-                self::$imageUrl = self::getImageURL($request);
+                self::$imageUrl = self::getImageUrl($request);
             }
+            
         
         self::$blog->title = $request->title;
         self::$blog->content = $request->content;
