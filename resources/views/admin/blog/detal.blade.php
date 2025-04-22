@@ -6,7 +6,7 @@
       <header class="card-header">
         <p class="card-header-title">
           <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
-          Clients
+        {{Auth::user()->name}}'s Blog
         </p>
         <a href="#" class="card-header-icon">
           <span class="icon"><i class="mdi mdi-reload"></i></span>
@@ -17,7 +17,7 @@
           <thead>
           <tr>
             
-            <th>Serial</th>
+           
            
             <th>Title</th>
             <th>Content</th>
@@ -33,7 +33,7 @@
 
           <tr>
            
-            <td data-label="Name">1</td>
+           
             
             <td data-label="City">{{$blog->title}}</td>
             <td data-label="City" class="w-24" style="width: 450px;">{{$blog->content}}</td>

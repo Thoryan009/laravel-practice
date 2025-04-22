@@ -53,4 +53,8 @@ class BlogController extends Controller
         Blog::deleteBlog($blog->id);
         return back()->with('message', 'Blog is deleted successfully');
     }
+    public function showAll()
+    {
+        return view('admin.blog.all-blogs', ['blogs' => Blog::all()]);
+    }
 }

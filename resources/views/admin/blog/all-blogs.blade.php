@@ -18,7 +18,7 @@
       <header class="card-header">
         <p class="card-header-title">
           <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
-         {{Auth::user()->name}}'s blogs
+         All blogs
         </p>
         <a href="#" class="card-header-icon">
           <span class="icon"><i class="mdi mdi-reload"></i></span>
@@ -29,9 +29,10 @@
         <table>
           <thead>
           <tr>
-            
+    
             <th>Serial</th>
-           
+            <th>Author</th>
+
             <th>Title</th>
             <th>Action</th>
 
@@ -42,25 +43,23 @@
             @foreach($blogs as $blog)
 
           <tr>
-           
             <td data-label="Name">{{$loop->iteration}}</td>
-            
-            <td data-label="City">{{$blog->title}}</td>
-          
+            <td data-label="Name">{{$blog->user->name}}</td>
+            <td data-label="City">{{$blog->title}}</td>  
             <td class="actions-cell">
               <div class="buttons nowrap">
+                
                 <button class="button small green"  data-target="sample-modal-2" type="button">
-                 <a href="{{route('blogs.show', $blog)}}"> <span class="icon"><i class="mdi mdi-eye"></i></span></a>
+                 <a href="{{$blog->user_id == Auth::user()->id ? route('blogs.show', $blog) : '#'}}" onclick="{{$blog->user_id == Auth::user()->id ? '' : 'alert(`You dont have access to SEE this blog details`);'}}"> <span class="icon"><i class="mdi mdi-eye"></i></span></a>
                 </button>
 
-                <form action="{{route('blogs.destroy', $blog)}}" method="post">
+                <form action="{{route('blogs.destroy', $blog)}}" onclick="{{$blog->user_id == Auth::user()->id ? '' : 'alert(`You dont have access to DELETE`);'}}" method="post">
                     @method('delete')
                     @csrf 
-                <button class="button small red " data-target="sample-modal" type="submit" onclick="return confirm('Are you sure to delete this..?')">
+                <button class="button small red " data-target="sample-modal" type="{{$blog->user_id == Auth::user()->id ? 'submit' : 'button'}}" onclick="return confirm('Are you sure to delete this..?')">
                   <span class="icon"><i class="mdi mdi-trash-can"></i></span>
                 </button>
                 </form>
-
               </div>
             </td>
           </tr>
@@ -72,12 +71,5 @@
        
       </div>
     </div>
-
-    
   </section>
-
-
-
-
-
 @endsection

@@ -157,7 +157,7 @@
     <ul class="menu-list">
       <li class="--set-active-tables-html">
         <a href="{{route('blogs.create')}}" >
-          <span class="icon"><i class="mdi mdi-table"></i></span>
+          <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
           <span class="menu-item-label">Blog Create</span>
         </a>
       </li>
@@ -165,6 +165,12 @@
         <a href="{{route('blogs.index')}}">
           <span class="icon"><i class="mdi mdi-table"></i></span>
           <span class="menu-item-label">Blog Manage</span>
+        </a>
+      </li>
+      <li class="--set-active-tables-html">
+        <a href="{{route('show.all')}}">
+          <span class="icon"><i class="mdi mdi-table"></i></span>
+          <span class="menu-item-label">All Blogs</span>
         </a>
       </li>
      
@@ -180,7 +186,7 @@
   <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
     <div class="flex items-center justify-start space-x-3">
       <div>
-        © 2021, MD Anisul Haque Siam
+        © 2021, {{Auth::user()->name}}
       </div>
 
       <div>

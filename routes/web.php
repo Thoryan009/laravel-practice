@@ -18,7 +18,6 @@ use App\Http\Controllers\BlogController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -29,5 +28,6 @@ Route::middleware([
     Route::get('/admin-login', [DashboardController::class, 'login'])->name('admin.login');
 
     Route::resource('blogs', BlogController::class);
+    Route::get('/all-blogs', [BlogController::class, 'showAll'])->name('show.all');
 
 });
