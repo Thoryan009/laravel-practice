@@ -9,7 +9,7 @@
       <header class="card-header">
         <p class="card-header-title">
           <span class="icon"><i class="mdi mdi-ballot"></i></span>
-          Create Blogs
+          Create Blogs {{Session::get('email')}}
         </p>
       </header>
       <div class="card-content">

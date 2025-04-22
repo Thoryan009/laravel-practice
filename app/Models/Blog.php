@@ -23,10 +23,11 @@ class Blog extends Model
     }
 
 
-    public static function newBlog($request)
+    public static function newBlog($request, $id)
     {
         self::$blog = new Blog();
 
+        self::$blog->user_id = $id;
         self::$blog->title = $request->title;
         self::$blog->content = $request->content;
         self::$blog->image = self::getImageUrl($request);
@@ -42,8 +43,6 @@ class Blog extends Model
                 self::$imageUrl = self::getImageUrl($request);
                 self::$blog->image = self::$imageUrl;
             }
-
-
         
         self::$blog->title = $request->title;
         self::$blog->content = $request->content;

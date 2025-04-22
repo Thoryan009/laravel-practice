@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
@@ -11,7 +12,7 @@ class BlogController extends Controller
     public function index()
     {
 
-        return view('admin.blog.manage', ['blogs' => Blog::all()]);
+        return view('admin.blog.manage', ['blogs' => Blog::where('user_id', Auth::user()->id)->get()]);
     }
 
     public function create()
@@ -19,10 +20,11 @@ class BlogController extends Controller
         return view('admin.blog.create');
     }
 
-   
+    private $user;
     public function store(Request $request)
     {
-        Blog::newBlog($request);
+        $this->user = Auth::user();
+        Blog::newBlog($request, $this->user->id);
         return back()->with('message', 'New blog added');
     }
 

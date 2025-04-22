@@ -26,6 +26,7 @@ Route::middleware([
 ])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/admin-login', [DashboardController::class, 'login'])->name('admin.login');
 
     Route::resource('blogs', BlogController::class);
 

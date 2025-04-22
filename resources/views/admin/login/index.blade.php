@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="form-screen">
 <head>
@@ -8,7 +7,7 @@
   <title>Login - Admin One Tailwind CSS Admin Dashboard</title>
 
   <!-- Tailwind is included -->
-  <link rel="stylesheet" href="{{asset('/')}}admin_asset/css/main.css?v=1628755089081">
+  <link rel="stylesheet" href="css/main.css?v=1628755089081">
 
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
@@ -56,13 +55,12 @@
         </p>
       </header>
       <div class="card-content">
-        <form method="post" action="{{route('login')}}" >
-            @csrf
+        <form method="get">
 
           <div class="field spaced">
             <label class="label">Login</label>
             <div class="control icons-left">
-              <input class="input" type="text" name="email" placeholder="user@example.com" autocomplete="username">
+              <input class="input" type="text" name="login" placeholder="user@example.com" autocomplete="username">
               <span class="icon is-small left"><i class="mdi mdi-account"></i></span>
             </div>
             <p class="help">
@@ -115,7 +113,7 @@
 </div>
 
 <!-- Scripts below are for demo only -->
-<script type="text/javascript" src="{{asset('/')}}admin_asset/js/main.min.js?v=1628755089081"></script>
+<script type="text/javascript" src="js/main.min.js?v=1628755089081"></script>
 
 
 <script>
