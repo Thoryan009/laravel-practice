@@ -3,19 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
-use App\Models\User;
-use Illuminate\Http\Request;
+use Exception;
+
+
 use Illuminate\Support\Facades\Auth;
-use Session;
+
 
 class DashboardController extends Controller
 {
     public function index()
     {
+ 
+
+       $my_blogs = Blog::where('user_id', Auth::user()->id);
         // $count = Blog::count();
         return view('admin.dashboard.index', [
             'count' =>  Blog::count(),
-            'user' => Auth::user()::count(),
+            'user' => Auth::user()->count(),
+            'my_blogs' => $my_blogs->count()
         ]);
     }
 

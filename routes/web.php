@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\MoreDataController;
+use App\Http\Controllers\SumController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,10 @@ use App\Http\Controllers\BlogController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/more-data', [MoreDataController::class, 'index'])->name('more-data');
+Route::get('/another-data', [MoreDataController::class, 'another'])->name('another-data');
+
+Route::post('/sum', [SumController::class, 'sum'])->name('store');
 
 Route::middleware([
     'auth:sanctum',

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Str;
 
 class Blog extends Model
 {
@@ -12,43 +12,43 @@ class Blog extends Model
 
     public static $blog, $image, $imageName, $imageUrl, $directory;
 
+   
     public static function getImageUrl($request)
     {
-        self::$image = $request->file('image');
-        self::$imageName =  self::$image->getClientOriginalName();
-        self::$directory =  "uploads/blog_image/";
-        self::$image->move(self::$directory, self::$imageName);
-        self::$imageUrl = self::$directory.self::$imageName;
-        return self::$imageUrl;
-
+            self::$image            = $request->file('image');
+            self::$imageName        = time().Str::uuid().'--'.self::$image->getClientOriginalName();
+            self::$directory        =  "uploads/blog_image/";
+            self::$image->move(self::$directory, self::$imageName);
+            self::$imageUrl         = self::$directory.self::$imageName;
+            return self::$imageUrl; 
     }
-
-
     public static function newBlog($request, $id)
     {
-        self::$blog = new Blog();
+            self::$blog             = new Blog();
+            self::$blog->user_id    = $id;
+            self::$blog->title      = $request->title;
+            self::$blog->content    = $request->content;
 
-        self::$blog->user_id = $id;
-        self::$blog->title = $request->title;
-        self::$blog->content = $request->content;
-        self::$blog->image = self::getImageUrl($request);
-        self::$blog->save();
+           if(isset($request->image))
+           {
+            self::$blog->image = self::getImageUrl($request);
+           }
+        
+            self::$blog->save();
+            return self::$blog;
     }
 
     public static function updateBlog($request, $id)
     {
         self::$blog = Blog::find($id);
-
         if(isset($request->image))
             {
-                self::$imageUrl = self::getImageUrl($request);
-                self::$blog->image = self::$imageUrl;
-            }
-        
-        self::$blog->title = $request->title;
-        self::$blog->content = $request->content;
-
-        self::$blog->save();
+                self::$imageUrl     = self::getImageUrl($request);
+                self::$blog->image  = self::$imageUrl;
+            }  
+                self::$blog->title      = $request->title;
+                self::$blog->content    = $request->content;
+                self::$blog->save();
     }
 
     public static function  deleteBlog($id)

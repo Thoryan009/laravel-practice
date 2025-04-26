@@ -48,10 +48,10 @@
           <div class="flex items-center justify-between">
             <div class="widget-label">
               <h3>
-                Total User
+              My Blogs
               </h3>
               <h1>
-                {{$user}}
+               {{$my_blogs}}
               </h1>
             </div>
             <span class="icon widget-icon text-blue-500"><i class="mdi mdi-cart-outline mdi-48px"></i></span>
@@ -64,10 +64,10 @@
           <div class="flex items-center justify-between">
             <div class="widget-label">
               <h3>
-                Performance
+                Total User
               </h3>
               <h1>
-                256%
+                {{$user}}
               </h1>
             </div>
             <span class="icon widget-icon text-red-500"><i class="mdi mdi-finance mdi-48px"></i></span>

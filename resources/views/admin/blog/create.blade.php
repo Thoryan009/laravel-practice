@@ -9,7 +9,7 @@
       <header class="card-header">
         <p class="card-header-title">
           <span class="icon"><i class="mdi mdi-ballot"></i></span>
-          Create Blogs {{Session::get('email')}}
+          Create Blogs {{collect(explode(' ',Auth::user()->name))->take(1)->implode(' ')}}
         </p>
       </header>
       <div class="card-content">
@@ -31,14 +31,14 @@
               <div class="field">
                 <div class="control icons-left">
                   
-                  <input class="input" type="text" placeholder="Title" required name="title">
+                  <input class="input" type="text" placeholder="Title"  name="title">
                   <span class="icon left"><i class="mdi mdi-account"></i></span>
                 </div>
               </div>
              
               <div class="field">
                 <div class="control icons-left">
-                  <textarea name="content" id="" class="input" placeholder="Content" required></textarea>
+                  <textarea name="content" id="" class="input" placeholder="Content" ></textarea>
                   <span class="icon left"><i class="mdi mdi-account"></i></span>
                 </div>
               </div>
@@ -51,7 +51,7 @@
                         <a class="button blue">
                         Upload
                         </a>
-                        <input type="file" name="image" required>
+                        <input type="file" name="image" >
                     </label>
                     </div>
                 </div>
@@ -70,8 +70,6 @@
 
   
   </section>
-
-
 
 
 @endsection

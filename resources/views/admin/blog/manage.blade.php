@@ -33,6 +33,7 @@
             <th>Serial</th>
            
             <th>Title</th>
+            <th>Time</th>
             <th>Action</th>
 
           </tr>
@@ -46,6 +47,11 @@
             <td data-label="Name">{{$loop->iteration}}</td>
             
             <td data-label="City">{{$blog->title}}</td>
+            <td data-label="City">
+            Date:  {{ $blog->created_at->timezone('Asia/Dhaka')->format('d M Y') }}
+              <br>
+             Time: {{ $blog->created_at->timezone('Asia/Dhaka')->format('h:i A') }}
+            </td>
           
             <td class="actions-cell">
               <div class="buttons nowrap">

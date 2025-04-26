@@ -56,9 +56,9 @@
                 <form action="{{route('blogs.destroy', $blog)}}" onclick="{{$blog->user_id == Auth::user()->id ? '' : 'alert(`You dont have access to DELETE`);'}}" method="post">
                     @method('delete')
                     @csrf 
-                <button class="button small red " data-target="sample-modal" type="{{$blog->user_id == Auth::user()->id ? 'submit' : 'button'}}" onclick="return confirm('Are you sure to delete this..?')">
-                  <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                </button>
+                  <button class="button small red " data-target="sample-modal" type="{{$blog->user_id == Auth::user()->id ? 'submit' : 'button'}}" onclick="return confirm('Are you sure to delete this..?')">
+                    <span class="icon"><i class="mdi mdi-trash-can"></i></span> 
+                  </button>
                 </form>
               </div>
             </td>

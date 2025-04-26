@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Interfaces\BlogRepositoryInterface;
+use App\Interfaces\PostLogRepositoryInterface;
+use App\Repositories\BlogRepository;
+use App\Repositories\PostLogRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(BlogRepositoryInterface::class, BlogRepository::class);
+        $this->app->bind(PostLogRepositoryInterface::class, PostLogRepository::class);
     }
 
     /**
@@ -19,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        
     }
 }
